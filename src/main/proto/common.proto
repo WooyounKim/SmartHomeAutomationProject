@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "common";
+option java_outer_classname = "CommonProto";
+
+package common;
+
+message AuthInfo {
+  string apiKey = 1;
+}
+
+message LogEntry {
+  string serviceName = 1;
+  string action = 2;
+  string timestamp = 3;
+}

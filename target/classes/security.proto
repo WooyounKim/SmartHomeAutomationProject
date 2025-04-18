@@ -1,0 +1,27 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "security";
+option java_outer_classname = "SecurityProto";
+
+package security;
+
+import "common.proto";
+
+service SecurityService {
+  rpc MonitorSecurity(stream SecurityEvent) returns (stream SecurityResponse);
+}
+
+message SecurityEvent {
+  string deviceId = 1;
+  string eventType = 2; // "motion", "door_open", "window_broken"
+  string timestamp = 3;
+  common.AuthInfo auth = 4;
+}
+
+message SecurityResponse {
+  string action = 1; // "lock_door", "alarm_triggered"
+  string message = 2;
+  string timestamp = 3;
+}

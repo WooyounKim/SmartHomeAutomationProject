@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;  // ✅ 꼭 필요
+option java_package = "lighting";   // ✅ Java 패키지 이름
+option java_outer_classname = "LightingProto";
+
+package lighting;
+
+import "common.proto";
+
+service LightingService {
+  rpc ConfigureLighting(stream LightingInput) returns (LightingDecision);
+}
+
+message LightingInput {
+  string sensorType = 1;
+  string value = 2;
+  string timestamp = 3;
+  common.AuthInfo auth = 4;
+}
+
+message LightingDecision {
+  string lightingMode = 1;
+  string reason = 2;
+}

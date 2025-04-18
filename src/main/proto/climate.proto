@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;             // ✅ 여러 클래스로 나눠 생성
+option java_package = "climate";               // ✅ Java 패키지 이름
+option java_outer_classname = "ClimateProto";  // ✅ 외부 클래스명
+
+package climate;
+
+import "common.proto";
+
+service ClimateService {
+  rpc StreamClimateStatus(ClimateRequest) returns (stream ClimateStatus);
+}
+
+message ClimateRequest {
+  string deviceId = 1;
+  common.AuthInfo auth = 2;
+}
+
+message ClimateStatus {
+  float temperature = 1;
+  float humidity = 2;
+  string timestamp = 3;
+}

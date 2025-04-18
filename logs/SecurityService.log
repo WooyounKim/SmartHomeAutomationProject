@@ -1,0 +1,6 @@
+[2025-04-18 13:28:41] Received event: motion from device123
+[2025-04-18 13:28:41] Sending response: alarm_triggered - Motion detected – security alert sent.
+[2025-04-18 13:28:41] Client stream completed.
+[2025-04-18 13:29:07] Received event: motion from device123
+[2025-04-18 13:29:07] Sending response: alarm_triggered - Motion detected – security alert sent.
+[2025-04-18 13:29:07] Client stream completed.
